@@ -3,7 +3,10 @@ import pika
 hosts = [
     ("rabbit-1", 5672),
     ("rabbit-2", 5673),
-    ("rabbit-3", 5674)
+    ("rabbit-3", 5674),
+    ("rabbit-4", 5675),
+    ("rabbit-5", 5676),
+    ("rabbit-6", 5677)
 ]
 
 for rHost, port in hosts:
@@ -22,8 +25,8 @@ else:
 
 rabbit_channel = rabbit_connection.channel()
 
-rabbit_channel.queue_declare(queue='my_queue')
+# rabbit_channel.queue_declare(queue='my_queue')
 
-rabbit_channel.basic_publish(exchange='', routing_key='my_queue', body='Hello World!')
+rabbit_channel.basic_publish(exchange='', routing_key='fila', body='Hello World!')
 
 rabbit_connection.close()

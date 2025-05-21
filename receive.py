@@ -3,7 +3,10 @@ import pika, os, sys
 hosts = [
     ("rabbit-1", 5672),
     ("rabbit-2", 5673),
-    ("rabbit-3", 5674)
+    ("rabbit-3", 5674),
+    ("rabbit-4", 5675),
+    ("rabbit-5", 5676),
+    ("rabbit-6", 5677)
 ]
 
 def main():
@@ -23,7 +26,7 @@ def main():
 
     rabbit_channel = rabbit_connection.channel()
 
-    rabbit_channel.queue_declare(queue='my_queue')
+    # rabbit_channel.queue_declare(queue='my_queue')
 
     def callback(ch, method, properties, body):
         print(f" [x] Received {body}")
