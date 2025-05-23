@@ -31,7 +31,7 @@ def main():
     def callback(ch, method, properties, body):
         print(f" [x] Received {body}")
 
-    rabbit_channel.basic_consume(queue='my_queue', on_message_callback=callback, auto_ack=True)
+    rabbit_channel.basic_consume(queue='fila', on_message_callback=callback, auto_ack=True)
 
     print(' [*] Waiting for messages. To exit press CTRL+C')
     rabbit_channel.start_consuming()
